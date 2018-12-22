@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import {
     SearchBar,
     Card,
@@ -24,7 +24,7 @@ class HomeScreen extends Component {
             .get('https://jsonplaceholder.typicode.com/posts')
             .then(response => {
                 // handle success console.log(response.data);
-                this.setState({dataSource: response.data})
+                this.setState({ dataSource: response.data })
             })
             .catch(function (error) {
                 // handle error
@@ -56,58 +56,66 @@ class HomeScreen extends Component {
                         showLoading
                         platform="ios"
                         cancelButtonTitle="Cancel"
-                        placeholder='Search'/>
-                        {!dataSource.length && <Button
+                        placeholder='Search' />
+
+                    <Icon
+                        raised
+                        name='heartbeat'
+                        type='font-awesome'
+                        color='#f50'
+                        onPress={() => console.log('hello')} />
+
+                    {!dataSource.length && <Button
                         title=""
                         loading
                         loadingProps={{
-                        size: "large",
-                        color: "rgba(111, 202, 186, 1)"
-                    }}
+                            size: "large",
+                            color: "rgba(111, 202, 186, 1)"
+                        }}
                         titleStyle={{
-                        fontWeight: "700"
-                    }}
+                            fontWeight: "700"
+                        }}
                         buttonStyle={{
-                        backgroundColor: "rgba(92, 99,216, 1)",
-                        width: 300,
-                        height: 45,
-                        borderColor: "transparent",
-                        borderWidth: 0,
-                        borderRadius: 5
-                    }}
+                            backgroundColor: "rgba(92, 99,216, 1)",
+                            width: 300,
+                            height: 45,
+                            borderColor: "transparent",
+                            borderWidth: 0,
+                            borderRadius: 5
+                        }}
                         containerStyle={{
-                        marginTop: 20
-                    }}/>
-}
+                            marginTop: 20
+                        }} />
+                    }
 
                     <View style={styles.container}>
                         <Card
                             title='HELLO WORLD'
                             image={{
-                            uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-01.jpg'
-                        }}>
+                                uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-01.jpg'
+                            }}>
                             <Text
                                 style={{
-                                marginBottom: 10
-                            }}>
+                                    marginBottom: 10
+                                }}>
                                 The idea with React Native Elements is more about component structure than
                                 actual design.
                             </Text>
                             <Button
-                                icon={< Icon name = 'code' color = '#ffffff' />}
+                                icon={< Icon name='code' color='#ffffff' />}
                                 backgroundColor='#03A9F4'
                                 buttonStyle={{
-                                borderRadius: 0,
-                                marginLeft: 0,
-                                marginRight: 0,
-                                marginBottom: 0
-                            }}
-                                title='VIEW NOW'/>
+                                    borderRadius: 0,
+                                    marginLeft: 0,
+                                    marginRight: 0,
+                                    marginBottom: 0
+                                }}
+                                title='VIEW NOW' />
                         </Card>
                         {dataSource.length > 0 && <Card
                             containerStyle={{
-                            padding: 0
-                        }}>
+                                padding: 0
+                            }}>
                             {this
                                 .state
                                 .dataSource
@@ -117,12 +125,12 @@ class HomeScreen extends Component {
                                         roundAvatar
                                         title={data.title}
                                         avatar={{
-                                        uri: 'https://via.placeholder.com/150'
-                                    }}/>);
+                                            uri: 'https://via.placeholder.com/150'
+                                        }} />);
                                 })
-}
+                            }
                         </Card>
-}
+                        }
                     </View>
                 </View>
 
